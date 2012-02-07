@@ -7,11 +7,11 @@ function getSkus()
 {
 	if(isset($_SESSION['cart'])) {
 		foreach ($_SESSION['cart'] as $key => $value) {
-			$skus = $key . ","
+			$skus = $key . ",";
 		}
 	}
 	//lob off last comma
-	$skus = substr($skus, 0, $skus.length-1)
+	$skus = substr($skus, 0, $skus.length-1);
 	return $skus;
 }
 
@@ -46,10 +46,10 @@ function getSkus()
 			}
 		}
 	echo "</table>";
-	unset($_SESSION['cart']);
+	//unset($_SESSION['cart']);
 ?>
 <p></p> 
-<a href="index.php">Return to Shopping></a>
+<a href="index.php?action=clear">Return to Shopping></a>
 </div>
 <div id="footer">
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>

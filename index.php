@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if ($_GET['action'] == "clear") {
+		unset($_SESSION['cart']);
+	}
+?>
 <html>
 <head>
 	<title>Comic Books Galore - Home</title>
