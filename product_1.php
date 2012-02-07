@@ -65,7 +65,11 @@
 					$("#ProductPrice").val(productPrice);
 				});
 				document.title += " " + productName;
+				var ftSpotLight = new Image();
+				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&ftXName="+escape(productName)+"&U1="+productSku;
 		};
+		
 </script>
+
 </body>
 </html>

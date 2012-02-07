@@ -35,6 +35,7 @@
 			<input type="hidden" id="ProductSku" name="ProductSku" />
 			<input type="hidden" id="ProductPrice" name="ProductPrice"/ >
 		</form>
+		</div>
 	</div>
 </div>
 <div id="sidebar">
@@ -52,8 +53,6 @@
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
 </div>
 </div>
-
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 <script type="text/javascript">
 	var productName = "The Avengers #1 (1963)",

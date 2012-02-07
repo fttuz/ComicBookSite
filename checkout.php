@@ -81,6 +81,9 @@ function getSku()
 <head>
 	<title>Comic Books Galore - Checkout</title>
 	<link rel="stylesheet" HREF="css/style.css" TYPE="text/css">
+	<style type="text/css">
+		table {border-bottom: 2px solid black;}
+	</style>
 </head>
 
 <body>
@@ -123,7 +126,5 @@ if (sumTotal().length > 0) {
 </div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
-
-</script>
 </body>
 </html>
