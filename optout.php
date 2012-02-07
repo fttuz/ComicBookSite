@@ -36,6 +36,6 @@ If you dont like that, <a href="#">click here</a>
 </div>
 
 
-<script type="http://code.jquery.com/jquery-1.7.1.js" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 </body>
 </html>

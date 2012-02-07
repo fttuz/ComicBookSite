@@ -48,18 +48,34 @@ function sumTotal()
 				}
 			}
 		}
-		$sum = "$" . $sum . ".00";
+		//$sum = "$" . $sum . ".00";
 	}
 	return $sum;
 }
-
-
 
 function clearCart()
 {
 	unset($_SESSION['cart']);
 }
 
+function totalQty()
+{
+		if(isset($_SESSION['cart'])) {
+		foreach ($_SESSION['cart'] as $key => $value) {
+			foreach ($value as $mykey => $myValue)
+			{
+				if ($mykey == "qty") {
+					$myQty += $myValue;
+				}
+			}
+		}
+	}
+	return $myQty;
+}
+function getSku()
+{
+	return $_POST['ProductSku'];
+}
 ?>
 <html>
 <head>
@@ -80,12 +96,14 @@ function clearCart()
 <div id="main">
 <h2>Your Cart</h2>
 <?php
-echo displayCart();
+	echo displayCart();
 ?>
 
 <h2>Total Price:</h2>
-<?php
-	echo sumTotal();
+<?php 
+if (sumTotal().length > 0) {
+	echo "$" . sumTotal() . ".00";
+}
 ?>
 <p></p>
 
@@ -93,8 +111,10 @@ echo displayCart();
 	<input type="submit" name="clear" value="Clear Cart">
 </form>
 
-<form name="buyNow" method="POST" action="ThankYou.php">
-	<input type="Submit" Value="Buy Now!!!!">
+<form id="frmPurchase" name="buyNow" method="POST" action="ThankYou.php">
+	<input type="hidden" id="transId" name="transId" />
+	<input type="Submit" Value="Buy Now!!!!" onClick="genTransId();" />
+</form>
 
 </div>
 <div id="footer">
@@ -102,9 +122,7 @@ echo displayCart();
 </div>
 </div>
 
-
-<script type="http://code.jquery.com/jquery-1.7.1.js" src="http://code.jquery.com/jquery-1.7.1.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 
 </script>
 </body>

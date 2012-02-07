@@ -45,6 +45,9 @@
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
 </div>
 </div>
+<div style="position:absolute;"> 
+<img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/spot/1921;7688;896/?spotName=Landing_Page"/> 
+</div>
 
 
 <script type="http://code.jquery.com/jquery-1.7.1.js" src="http://code.jquery.com/jquery-1.7.1.js"></script>

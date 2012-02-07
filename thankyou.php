@@ -1,7 +1,21 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL);
 session_start();
+
+function getSkus()
+{
+	if(isset($_SESSION['cart'])) {
+		foreach ($_SESSION['cart'] as $key => $value) {
+			$skus = $key . ","
+		}
+	}
+	//lob off last comma
+	$skus = substr($skus, 0, $skus.length-1)
+	return $skus;
+}
+
+
 ?>
 
 <html>
@@ -24,17 +38,13 @@ session_start();
 <div id="main">
 <h2>Thank you for your purchase.</h2>
 <?php
-
-
 	echo "<table id='shoppingCart'>";
-	//if(isset($_SESSION['cart'])) {
 		foreach ($_SESSION['cart'] as $key => $value) {
 			foreach ($value as $mykey => $myValue)
 			{
 				echo "<tr><td>" . $mykey . "</td><td>" . $myValue . "</td></tr>";	
 			}
 		}
-	//}
 	echo "</table>";
 	unset($_SESSION['cart']);
 ?>
@@ -45,11 +55,12 @@ session_start();
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
 </div>
 </div>
-
-
-<script type="http://code.jquery.com/jquery-1.7.1.js" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 <script type="text/javascript">
 	var transactionID = Math.floor(Math.random() * 1000);
+	var ftSpotLight = new Image();
+	ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7690;896/?spotName=Thank_You&ftXRef="+transactionID+"&U1=<?php echo getSkus(); ?>";
 </script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
 </body>
 </html>
