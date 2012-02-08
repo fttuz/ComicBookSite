@@ -37,11 +37,10 @@ include("inc/functions.inc.php");
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
 </div>
 </div>
-<script type="text/javascript">
-	var transactionID = Math.floor(Math.random() * 1000);
-	var ftSpotLight = new Image();
-	ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7690;896/?spotName=Thank_You&ftXRef="+transactionID+"&U1=<?php echo getSkus(); ?>";
-</script>
+<div style="position:absolute;"> 
+<img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/spot/1921;7690;896/?spotName=Thank_You&ftXRef=<?php echo getTransactionId();?>&ftXValue=<?php echo sumTotal(); ?>&ftXName=<?php echo getProductNames(); ?>&ftNumItems=<?php echo totalQty();?>&U1=<?php echo getSkus();?>"/> 
+</div>
+
 
 <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
 </body>
