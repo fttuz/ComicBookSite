@@ -2,26 +2,13 @@
 <head>
 	<title>Comic Books Galore - </title>
 	<link rel="stylesheet" HREF="css/style.css" TYPE="text/css">
-	<style type="text/css">
-		#leftCol > img {
-			width:280px;
-			height:400px;
-			margin-top: -10px;
-			margin-left: 30px;
-		}
-	</style>
 </head>
 
 <body onload="init();">
 <div id="wrap">
 <div id="header"><h1>Comic Books Galore</h1></div>
 <div id="nav">
-<ul>
-<li><a href="index.php">Products</a></li>
-<li><a href="Checkout.php">Shopping Cart</a></li>
-
-
-</ul>
+<?php include("navbar.php") ?>
 </div>
 <div id="main">
 	<div id="innerWrapper">
@@ -39,15 +26,7 @@
 	</div>
 </div>
 <div id="sidebar">
-<h2>Product List</h2>
-<p></p>
-<ul>
-<li><a href="product_1.php">Amazing Fantasy 15 (1962)</a></li>
-<li><a href="product_2.php">Detective Comics 27 (1939)</a></li>
-<li><a href="product_3.php">Action Comics 1 (1938)</a></li>
-<li><a href="product_4.php">Showcase 22 (1959)</a></li>
-<li><a href="product_5.php">The Avengers #1 (1963)</a></li>
-</ul>
+<?php include("sidebar.php") ?>
 </div>
 <div id="footer">
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
@@ -55,7 +34,7 @@
 </div>
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
 <script type="text/javascript">
 	var productName = "Action Comics 1 (1938)",
 	productImage = "Action_Comics_1.jpg",

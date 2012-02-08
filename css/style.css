@@ -67,6 +67,12 @@ body,
 			height: 400px;
 			float: left;
 		}
+		#leftCol > img {
+			width:280px;
+			height:400px;
+			margin-top: -10px;
+			margin-left: 30px;
+		}
 		#rightCol {
 			width: 150px;
 			height: 400px;

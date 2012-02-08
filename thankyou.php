@@ -2,20 +2,7 @@
 //ini_set('display_errors', 'On');
 //error_reporting(E_ALL);
 session_start();
-
-function getSkus()
-{
-	if(isset($_SESSION['cart'])) {
-		foreach ($_SESSION['cart'] as $key => $value) {
-			$skus = $key . ",";
-		}
-	}
-	//lob off last comma
-	$skus = substr($skus, 0, $skus.length-1);
-	return $skus;
-}
-
-
+include("inc/functions.inc.php");
 ?>
 
 <html>
@@ -28,12 +15,7 @@ function getSkus()
 <div id="wrap">
 <div id="header"><h1>Comic Books Galore</h1></div>
 <div id="nav">
-<ul>
-<li><a href="index.php">Products</a></li>
-<li><a href="Checkout.php">Shopping Cart</a></li>
-
-
-</ul>
+<?php include("navbar.php") ?>
 </div>
 <div id="main">
 <h2>Thank you for your purchase.</h2>
@@ -61,6 +43,6 @@ function getSkus()
 	ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7690;896/?spotName=Thank_You&ftXRef="+transactionID+"&U1=<?php echo getSkus(); ?>";
 </script>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
 </body>
 </html>
