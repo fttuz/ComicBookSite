@@ -50,8 +50,8 @@ else
 
 <h2>Total Price:</h2>
 <?php 
-if (sumTotal().length > 0) {
-	echo "$" . sumTotal() . ".00";
+if (sumValuesFromCart("Price").length > 0) {
+	echo "$" . sumValuesFromCart("Price") . ".00";
 }
 ?>
 <p></p>

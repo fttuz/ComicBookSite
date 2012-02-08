@@ -1,7 +1,8 @@
 <?php
 	session_start();
+	include("inc/functions.inc.php");
 	if ($_GET['action'] == "clear") {
-		unset($_SESSION['cart']);
+		clearCart();
 	}
 ?>
 <html>

@@ -15,78 +15,42 @@ function displayCart()
 	
 }
 
-function sumTotal()
-{
-	if(isset($_SESSION['cart'])) {
-		foreach ($_SESSION['cart'] as $key => $value) {
-			foreach ($value as $mykey => $myValue)
-			{
-				if ($mykey == "Price") {
-					$sum += $myValue;
-				}
-			}
-		}
-		//$sum = "$" . $sum . ".00";
-	}
-	return $sum;
-}
-
 function clearCart()
 {
 	unset($_SESSION['cart']);
 }
 
-function totalQty()
-{
-		if(isset($_SESSION['cart'])) {
-		foreach ($_SESSION['cart'] as $key => $value) {
-			foreach ($value as $mykey => $myValue)
-			{
-				if ($mykey == "qty") {
-					$myQty += $myValue;
-				}
-			}
-		}
-	}
-	return $myQty;
-}
-
-function getProductNames()
+function sumValuesFromCart($type)
 {
 	if(isset($_SESSION['cart'])) {
 		foreach ($_SESSION['cart'] as $key => $value) {
 			foreach ($value as $mykey => $myValue)
 			{
-				if ($mykey == "Name") {
-					$names = $myValue . ",";
+				if ($mykey == $type) {
+					$sum += $myValue;
 				}
 			}
 		}
 	}
-	return $names;	
+	return $sum;
 }
 
-
-function getSku()
-{
-	return $_POST['ProductSku'];
-}
-function getSkus()
+function getValuesFromCart($type)
 {
 	if(isset($_SESSION['cart'])) {
 		foreach ($_SESSION['cart'] as $key => $value) {
 			foreach ($value as $mykey => $myValue)
 			{
-				if ($mykey == "Item") {
-					$skus = $myValue . ",";
+				if ($mykey == $type) {
+
+					$retVal = $retVal . urlencode($myValue) . ",";
 				}
 			}
-			
 		}
 	}
 	//lob off last comma
-	$skus=eregi_replace(',$', '', $skus);
-	return $skus;
+	$retVal=eregi_replace(',$', '', $retVal);
+	return $retVal;	
 }
 
 function getTransactionId() {

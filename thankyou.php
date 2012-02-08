@@ -38,7 +38,7 @@ include("inc/functions.inc.php");
 </div>
 </div>
 <div style="position:absolute;"> 
-<img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/spot/1921;7690;896/?spotName=Thank_You&ftXRef=<?php echo getTransactionId();?>&ftXValue=<?php echo sumTotal(); ?>&ftXName=<?php echo getProductNames(); ?>&ftNumItems=<?php echo totalQty();?>&U1=<?php echo getSkus();?>"/> 
+<img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/spot/1921;7690;896/?spotName=Thank_You&ftXRef=<?php echo getTransactionId();?>&ftXValue=<?php echo sumValuesFromCart("Price"); ?>&ftXName=<?php echo getValuesFromCart("Name"); ?>&ftNumItems=<?php echo sumValuesFromCart("qty");?>&U1=<?php echo getValuesFromCart("Item");?>"/> 
 </div>
 
 
