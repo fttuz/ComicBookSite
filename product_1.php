@@ -38,6 +38,10 @@
 	productSku = "1293812938172",
 	productPrice = "250.00",
 	productDescription="With nothing to lose, publisher Martin Goodman agreed to allow Lee to introduce Spider-Man, a new kind of superhero — one who would be a teenager, but not a sidekick, and one who would have everyman doubts, neuroses and money problems.  Sales for Amazing Fantasy #15 proved to be one of Marvel's highest at the time and The Amazing Spider-Man was quickly launched to capitalize on the new character's apparent popularity",
+		fireSpot = function(a) {
+				var ftSpotLight = new Image();
+				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+		},
 		init = function(e) {
 				$("#leftCol").append("<img src='images/"+productImage+"' />");
 				$("#rightCol").append(productDescription);
@@ -48,10 +52,8 @@
 					$("#ProductPrice").val(productPrice);
 				});
 				document.title += " " + productName;
-				var ftSpotLight = new Image();
-				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&ftXName="+escape(productName)+"&U1="+productSku;
+				fireSpot();
 		};
-		
 </script>
 
 </body>

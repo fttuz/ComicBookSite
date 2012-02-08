@@ -3,7 +3,6 @@
 	<title>Comic Books Galore</title>
 	<link rel="stylesheet" HREF="css/style.css" TYPE="text/css">
 </head>
-
 <body onload="init();">
 <div id="wrap">
 <div id="header"><h1>Comic Books Galore</h1></div>
@@ -39,6 +38,10 @@
 	productSku = "347239473423",
 	productPrice = "350.00",
 	productDescription="The Avengers is a fictional team of superheroes, appearing in magazines published by Marvel Comics. The team made its debut in The Avengers #1 (Sept. 1963), and was created by writer-editor Stan Lee and artist/co-plotter Jack Kirby, following the trend of super-hero teams after the success of DC Comics' Justice League of America.",
+		fireSpot = function(a) {
+				var ftSpotLight = new Image();
+				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+		},
 		init = function(e) {
 				$("#leftCol").append("<img src='images/"+productImage+"' />");
 				$("#rightCol").append(productDescription);
@@ -49,6 +52,7 @@
 					$("#ProductPrice").val(productPrice);
 				});
 				document.title += " " + productName;
+				fireSpot();
 		};
 </script>
 </body>

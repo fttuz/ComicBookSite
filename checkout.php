@@ -70,6 +70,9 @@ if (sumTotal().length > 0) {
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
 </div>
 </div>
+<div style="position:absolute;"> 
+<img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/spot/1921;7689;896/?spotName=Checkout_Page&U1=<?php echo getSkus(); ?>"/> 
+</div>
 
 <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
 </body>

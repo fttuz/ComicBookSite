@@ -50,6 +50,23 @@ function totalQty()
 	}
 	return $myQty;
 }
+
+function getProductNames()
+{
+	if(isset($_SESSION['cart'])) {
+		foreach ($_SESSION['cart'] as $key => $value) {
+			foreach ($value as $mykey => $myValue)
+			{
+				if ($mykey == "Name") {
+					$names = $myValue . ",";
+				}
+			}
+		}
+	}
+	return $names;	
+}
+
+
 function getSku()
 {
 	return $_POST['ProductSku'];
@@ -58,12 +75,22 @@ function getSkus()
 {
 	if(isset($_SESSION['cart'])) {
 		foreach ($_SESSION['cart'] as $key => $value) {
-			$skus = $key . ",";
+			foreach ($value as $mykey => $myValue)
+			{
+				if ($mykey == "Item") {
+					$skus = $myValue . ",";
+				}
+			}
+			
 		}
 	}
 	//lob off last comma
-	$skus = substr($skus, 0, $skus.length-1);
+	$skus=eregi_replace(',$', '', $skus);
 	return $skus;
+}
+
+function getTransactionId() {
+	return rand();
 }
 
 ?>
