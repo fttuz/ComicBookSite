@@ -16,7 +16,7 @@
 		</div>
 		<div id="rightCol" style="font-size:12px">
 		<div id="price">Price: </div>
-		<form name="buyNow" method="POST" action="Checkout.php">
+		<form name="buyNow" method="POST" action="checkout.php">
 			<input type="submit" id="buyNow" Value="Add to Shopping Cart" />
 			<input type="hidden" id="ProductName" name="ProductName" />
 			<input type="hidden" id="ProductSku" name="ProductSku" />

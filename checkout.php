@@ -60,7 +60,7 @@ if (sumValuesFromCart("Price").length > 0) {
 	<input type="submit" name="clear" value="Clear Cart">
 </form>
 
-<form id="frmPurchase" name="buyNow" method="POST" action="ThankYou.php">
+<form id="frmPurchase" name="buyNow" method="POST" action="thankyou.php">
 	<input type="hidden" id="transId" name="transId" />
 	<input type="Submit" Value="Buy Now!!!!" onClick="genTransId();" />
 </form>
