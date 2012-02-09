@@ -55,6 +55,23 @@
 				fireSpot();
 		};
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("body").css("display", "none");
+ 
+    $("body").slideToggle("slow");
+ 
+    $("a.transition").click(function(event){
+        event.preventDefault();
+        linkLocation = this.href;
+        $("body").slideToggle("slow", redirectPage);
+    });
+ 
+    function redirectPage() {
+        window.location = linkLocation;
+    }
+});
+</script>
 
 </body>
 </html>
