@@ -41,9 +41,18 @@
 	productSku = "9487239892342",
 	productPrice = "950.00",
 	productDescription="Harold 'Hal' Jordan is a DC Comics superhero known as Green Lantern, the first human shown to join the Green Lantern Corps and a founding member of the Justice League of America. Jordan is the second DC Comics character to adopt the Green Lantern moniker. Jordan was created in the Silver Age of Comic Books by John Broome and Gil Kane, and made his first appearance in Showcase #22 (October 1959).",
-		fireSpot = function(a) {
-				var ftSpotLight = new Image();
-				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+		firePixel = function(pixelType) {
+			var ftpixel = new Image();
+			switch(pixelType) {
+				case "segment":
+				  ftpixel.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+				  break;
+				case "spotlight":
+				  ftpixel.src = "http://servedby.flashtalking.com/segment/modify/at8;;pixel/?name=ProductPage&valuePairs="+productSku;
+				  break;
+				 default:
+				 	break;
+			};
 		},
 		init = function(e) {
 				$("#leftCol").append("<img src='images/"+productImage+"' />");
@@ -55,7 +64,8 @@
 					$("#ProductPrice").val(productPrice);
 				});
 				document.title += " " + productName;
-				fireSpot();
+				firePixel("segment");
+				firePixel("spotlight");
 		};
 </script>
 

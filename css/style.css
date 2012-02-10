@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Shojumaru);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+SC);
 
 body,
 	html {
@@ -14,9 +14,11 @@ body,
 		background:#99c;
 	}
 	#header {
+		text-align:right;
+		margin: 0 auto;
     	padding:5px 10px;
 		background:#ddd;
-		font-family: 'Shojumaru', cursive;
+		font-family: 'Alegreya SC', serif;
 	}
 	h1 {
 	    margin:0;
@@ -34,6 +36,8 @@ body,
 		display:inline;
 		margin:0;
 		padding:0;
+		font-family: 'Alegreya SC', serif;
+		font-size: 18px;
 	}
 	#main {
 		float:left;
@@ -41,9 +45,13 @@ body,
 		padding:10px;
 		background:#9c9;
 	}
+	#main > h3 {
+		text-align: left;
+	}
 	h2 {
 		margin:0 0 1em;
-		font-family: 'Shojumaru', cursive;
+		text-align:center;
+		font-family: 'Alegreya SC', serif;
 	}
 	#sidebar {
 		float:right;
@@ -51,10 +59,19 @@ body,
 		padding:10px;
 		background:#99c;
 	}
+	#title {
+		margin-top: -25px;
+		font-family: 'Alegreya SC', serif;
+		font-size: 16px;
+
+	}
 	#footer {
 		clear:both;
 		padding:5px 10px;
 		background:#cc9;
+		font-family: 'Alegreya SC', serif;
+		font-size: 16px;
+		text-align:right;
 	}
 	#footer p {
 		margin:0;

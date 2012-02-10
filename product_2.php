@@ -39,9 +39,18 @@
 	productSku = "3812639379154",
 	productPrice = "400.00",
 	productDescription="Detective Comics #27 (May 1939) featured the first appearance of Batman (as 'The Bat-Man'). That superhero would eventually become the star of the title, the cover logo of which is often written as 'Detective Comics featuring Batman'. Because of its significance, issue #27 is widely considered one of the most valuable comic books in existence, with one copy selling for $1,075,000 in a February 2010 auction.",
-		fireSpot = function(a) {
-				var ftSpotLight = new Image();
-				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+		firePixel = function(pixelType) {
+			var ftpixel = new Image();
+			switch(pixelType) {
+				case "segment":
+				  ftpixel.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+				  break;
+				case "spotlight":
+				  ftpixel.src = "http://servedby.flashtalking.com/segment/modify/at8;;pixel/?name=ProductPage&valuePairs="+productSku;
+				  break;
+				 default:
+				 	break;
+			};
 		},
 		init = function(e) {
 				$("#leftCol").append("<img src='images/"+productImage+"' />");
@@ -53,7 +62,8 @@
 					$("#ProductPrice").val(productPrice);
 				});
 				document.title += " " + productName;
-				fireSpot();
+				firePixel("segment");
+				firePixel("spotlight");
 		};
 </script>
 </body>

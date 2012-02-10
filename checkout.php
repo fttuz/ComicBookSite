@@ -43,19 +43,16 @@ else
 <?php include("navbar.php") ?>
 </div>
 <div id="main">
-<h2>Your Cart</h2>
 <?php
+	echo "<h3>Your Cart</h3>";
 	echo displayCart();
-?>
 
-<h2>Total Price:</h2>
-<?php 
-if (sumValuesFromCart("Price").length > 0) {
-	echo "$" . sumValuesFromCart("Price") . ".00";
-}
+	if (sumValuesFromCart("Price").length > 0) {
+		echo "<h3>Total Price:</h3>";
+		echo "$" . sumValuesFromCart("Price") . ".00";
+	}
 ?>
 <p></p>
-
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 	<input type="submit" name="clear" value="Clear Cart">
 </form>

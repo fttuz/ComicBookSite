@@ -1,13 +1,32 @@
+<?php
+
+include("inc/functions.inc.php");
+
+$myquery = "SELECT name, descrip, price, image, sku FROM products where id=" . $_GET['id'];
+
+$resultset = queryDB($myquery);
+
+    while ($row = mysql_fetch_assoc($resultset)) {
+        $name = $row['name'];
+        $desc = $row['descrip'];
+        $price = $row['price'];
+        $image = $row['image'];
+        $sku = $row['sku'];
+    }
+
+closeDB();
+
+?>
 <html>
 <head>
-	<title>Comic Books Galore</title>
+	<title>Comic Books Galore - </title>
 	<link rel="stylesheet" HREF="css/style.css" TYPE="text/css">
 </head>
 <body onload="init();">
 <div id="wrap">
 <div id="header"><h1>Comic Books Galore</h1></div>
 <div id="nav">
-<?php include("navbar.php"); ?>
+<?php include("navbar.php") ?>
 </div>
 <div id="main">
 	<div id="innerWrapper">
@@ -25,7 +44,7 @@
 	</div>
 </div>
 <div id="sidebar">
-<?php include("sidebar.php"); ?>
+<?php include("sidebar.php") ?>
 </div>
 <div id="footer">
 <p>&copy; Comic Books Galore, Inc.  <a href="optout.php">Privacy & Optout</a></p>
@@ -33,11 +52,11 @@
 </div>
 <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
 <script type="text/javascript">
-	var productName = "The Avengers #1 (1963)",
-	productImage = "Avengers-1.jpg",
-	productSku = "347239473423",
-	productPrice = "350.00",
-	productDescription="The Avengers is a fictional team of superheroes, appearing in magazines published by Marvel Comics. The team made its debut in The Avengers #1 (Sept. 1963), and was created by writer-editor Stan Lee and artist/co-plotter Jack Kirby, following the trend of super-hero teams after the success of DC Comics' Justice League of America.",
+	var productName = "<?php echo $name; ?>",
+	productImage = "<?php echo $image; ?>",
+	productSku = "<?php echo $sku; ?>",
+	productPrice = "<?php echo $price; ?>",
+	productDescription="<?php echo $desc; ?>",
 		firePixel = function(pixelType) {
 			var ftpixel = new Image();
 			switch(pixelType) {
@@ -52,6 +71,7 @@
 			};
 		},
 		init = function(e) {
+				$("#leftCol").append("<div id='title'>"+productName+"</div><br />");
 				$("#leftCol").append("<img src='images/"+productImage+"' />");
 				$("#rightCol").append(productDescription);
 				$("#price").append(productPrice);
@@ -65,5 +85,6 @@
 				firePixel("spotlight");
 		};
 </script>
+
 </body>
 </html>

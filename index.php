@@ -19,19 +19,8 @@
 </div>
 <div id="main">
 <h2>The Best Comic Books!</h2>
-<p></p
-	<div id="innerWrapper">
-		<div id="leftCol">
-			<h3><a href="product_1.php">Amazing Fantasy 15 (1962)</a></h3>
-			<h3><a href="product_2.php">Detective Comics 27 (1939)</a></h3>
-			<h3><a href="product_3.php">Action Comics 1 (1938)</a></h3>
-			<h3><a href="product_4.php">Showcase 22 (1959)</a></h3>
-			<h3><a href="product_5.php">The Avengers #1 (1963)</a></h3>
-		</div>
-		<div id="rightCol">
-			<img src="images/comic-book-explosion1.jpg" width="150px" height="200px" />
-		</div>
-
+<p></p>
+<iframe width="480" height="274" src="http://www.youtube.com/embed/lCIS_uoQrvM?rel=0&iv_load_policy=3&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
 </div>
 <div id="sidebar">
 <?php include("sidebar.php") ?>

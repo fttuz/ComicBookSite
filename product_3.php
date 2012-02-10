@@ -41,9 +41,18 @@
 	productSku = "84625395716233",
 	productPrice = "700.00",
 	productDescription="Action Comics is an American comic book series that introduced Superman, the first major superhero character as the term is popularly defined. The publisher was originally known as Detective Comics, Inc., and later as National Comics and as National Periodical Publications, before taking on its current name of DC Comics.",
-		fireSpot = function(a) {
-				var ftSpotLight = new Image();
-				ftSpotLight.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+		firePixel = function(pixelType) {
+			var ftpixel = new Image();
+			switch(pixelType) {
+				case "segment":
+				  ftpixel.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
+				  break;
+				case "spotlight":
+				  ftpixel.src = "http://servedby.flashtalking.com/segment/modify/at8;;pixel/?name=ProductPage&valuePairs="+productSku;
+				  break;
+				 default:
+				 	break;
+			};
 		},
 		init = function(e) {
 				$("#leftCol").append("<img src='images/"+productImage+"' />");
@@ -55,7 +64,8 @@
 					$("#ProductPrice").val(productPrice);
 				});
 				document.title += " " + productName;
-				fireSpot();
+				firePixel("segment");
+				firePixel("spotlight");
 		};
 
 </script>
