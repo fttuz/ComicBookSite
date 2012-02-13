@@ -13,7 +13,7 @@
 			}
 			#hotspot {
 				position:absolute;
-				top: 60px;
+				top: 30px;
 				left: 20px;
 			}
 			#hotspot > img {
@@ -56,13 +56,33 @@
 			}
 			#instantAdText {
 				position: absolute;
-				top:40px;
+				top:35px;
 				left:20px;
 				width:170px;
-				height:214px;
+				height:20px;
+				/*border:2px solid white;*/
+				color:violet;
+				font-family: sans-serif;
+				font-size: 12px;
+			}
+			#productName {
+				position: absolute;
+				top:70px;
+				left:20px;
+				width:170px;
+				height:25px;
 				/*border:2px solid white;*/
 				color:white;
 				font-family: sans-serif;
+				font-size: 12px;
+				font-style: italic;
+			}
+			#productImage img {
+				width: 130px;
+				height: 150px;
+				top: 30px;
+				left: 10px;
+				position: absolute;
 			}
 		</style>
 	<body>
@@ -70,11 +90,14 @@
 			<div id="banner">
 				<div id="hotspot"><img src="images/logo3.png" alt="flashtalking" /></div>
 				<div id="bannerCTA">Click to Expand</div>
+								
 			</div>
 			<div id="panel">
 				<div id="video"></div>
 				<div id="closeBtn"><img src="images/closeBtn.png" alt="close button"></div>
 				<div id="instantAdText"></div>
+				<div id="productName"></div>
+				<div id="productImage"></div>
 
 			</div>
 		</div>
@@ -82,6 +105,7 @@
 	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/video.js"></script>
 	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/expand.js"></script>
 	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/instantAds.js"></script>
+	<script type="text/javascript" src="http://cdn.flashtalking.com/productCatalogs/48/demo.js"></script>
 	<script type="text/javascript">
 			var myFT = new FT,
 			vid = myFT.insertVideo({
@@ -100,6 +124,7 @@
 				expanded.style.display="block";
 				unexpanded.style.display = "none";
 				myFT.expand();
+				myFT.dispatchEvent("productFeed");
 				vid.play();
 			},
 			contract = function(){
@@ -110,9 +135,36 @@
 			},
 			instantAdsListener = function(){
 				FT.query("#instantAdText").innerHTML = myFT.instantAds.panelText;
+			},
+			productFeedListener = function() {
+				var results = prodFT.ft.products.product,
+				getLastViewed = function(prop) {
+					for (var i = 0; i <results.length; i++) {
+						    if (results[i]["-type"] == "lastViewed") {
+						        return results[i][prop];
+						    }
+					}
+				},
+				getRecommendations = function(idx,prop) {
+					return results[idx][prop];
+				}
+				getRand = function(min, max) {
+					return Math.floor(Math.random() * (max - min + 1)) + min;
+				};
+				if (getRand(1,10) % 2 ==1) {
+					FT.query("#productImage").innerHTML = "<div id='productName'>Last Viewed Item:<br />"+getLastViewed("Name")+"<img src="+getLastViewed('Image')+" /></div>";
+				} else {
+					var rand = getRand(1,results.length-1);
+					FT.query("#productImage").innerHTML = "<div id='productName'>Comics Galore Recommends:<br />"+getRecommendations(rand,"Name")+"<img src="+getRecommendations(rand,"Image")+" /></div>";
+				}
+		
 			};
-
+				
 			myFT.addEventListener("instantads", instantAdsListener);
+			myFT.addEventListener("productFeed", productFeedListener);
+			
+			
+			
 			myFT.applyButton(bannerCTA, expand);
 			myFT.applyButton(closeBtn, contract);
 			myFT.applyClickTag(hotspot, 1);

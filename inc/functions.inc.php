@@ -62,11 +62,15 @@ function getTransactionId() {
 //DB
 
 function queryDB($query) {
-    //dev
-    //$link = mysql_connect('localhost', 'root', 'root');
-    //prod
-    $link = mysql_connect('comicsgalore.db.7775973.hostedresource.com','comicsgalore','Flash123');
-
+    $domain = $_SERVER["SERVER_NAME"];
+    if (strrpos($domain, "localhost") >=0) {
+    	//dev
+    	$link = mysql_connect('localhost', 'root', 'root');
+    } else {
+    	//prod
+    	$link = mysql_connect('comicsgalore.db.7775973.hostedresource.com','comicsgalore','Flash123');
+    }
+    
     if (!$link) {
         die('Could not connect: ' . mysql_error());
     }

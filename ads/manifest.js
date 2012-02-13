@@ -10,7 +10,7 @@ FT.manifest({
 		"indentDown":0
 	},
 	"instantAds":[
-		{"name":"panelText", "type":"text","default":"Comic Books Are Cool"}
+		{"name":"panelText", "type":"text","default":"Default Non Targetting Message-Comics are Great!"}
 	],
 	"videos":[
 		{"name":"video1", "ref":"14142/23001_comic_video_1"}
