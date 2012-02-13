@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 include("inc/functions.inc.php");
 
 $myquery = "SELECT name, descrip, price, image, sku FROM products where id=" . $_GET['id'];
@@ -64,7 +64,7 @@ closeDB();
 				  ftpixel.src = "http://servedby.flashtalking.com/spot/1921;7691;896/?spotName=Product_Page&U1="+productSku;
 				  break;
 				case "spotlight":
-				  ftpixel.src = "http://servedby.flashtalking.com/segment/modify/at8;;pixel/?name=ProductPage&valuePairs="+productSku;
+				  ftpixel.src = "http://servedby.flashtalking.com/segment/modify/at0;at1;pixel/?name=ProductPage";
 				  break;
 				 default:
 				 	break;

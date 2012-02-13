@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#banner{
+				background-color:#6b98d1;
+				width:300px;
+				height:250px;
+				z-index:1;
+				color:white;
+				display: block;
+				font-family: sans-serif;
+			}
+			#hotspot {
+				position:absolute;
+				top: 60px;
+				left: 20px;
+			}
+			#hotspot > img {
+				position:absolute;
+				width:260px;
+				height:40px;
+			}
+			#panel{
+				background-color:#6b98d1;
+				width:500px;
+				height:300px;
+				display:none;
+				position:absolute;
+				top:0px;
+				left:0px;
+			}
+			#video{
+				width:245px;
+				height:215px;
+				margin-top:40px;
+				margin-left:230px;
+			}
+			#video video{
+				width:245px;
+				height:215px;
+			}
+			#closeBtn > img{
+				position:absolute;
+				top:10px;
+				left:10px;
+				width:20px;
+				height:20px;
+			}
+			#bannerCTA{
+				position:absolute;
+				top:220px;
+				left:180px;
+				width:120px;
+				height:50px;
+			}
+			#instantAdText {
+				position: absolute;
+				top:40px;
+				left:20px;
+				width:170px;
+				height:214px;
+				/*border:2px solid white;*/
+				color:white;
+				font-family: sans-serif;
+			}
+		</style>
+	<body>
+		<div id="main">
+			<div id="banner">
+				<div id="hotspot"><img src="images/logo3.png" alt="flashtalking" /></div>
+				<div id="bannerCTA">Click to Expand</div>
+			</div>
+			<div id="panel">
+				<div id="video"></div>
+				<div id="closeBtn"><img src="images/closeBtn.png" alt="close button"></div>
+				<div id="instantAdText"></div>
+
+			</div>
+		</div>
+	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/html5API.js"></script>
+	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/video.js"></script>
+	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/expand.js"></script>
+	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/instantAds.js"></script>
+	<script type="text/javascript">
+			var myFT = new FT,
+			vid = myFT.insertVideo({
+				parent:FT.query("#video"),
+				video:"video1",
+				width:245,
+				height:215,
+				controls:true
+			}),
+			unexpanded = FT.query("#banner"),
+			expanded = FT.query("#panel"),
+			bannerCTA = FT.query("#bannerCTA"),
+			closeBtn = FT.query("#closeBtn"),
+			hotspot = FT.query("#hotspot"),
+			expand = function(){
+				expanded.style.display="block";
+				unexpanded.style.display = "none";
+				myFT.expand();
+				vid.play();
+			},
+			contract = function(){
+				expanded.style.display="none";
+				unexpanded.style.display = "block";
+				vid.stop();
+				myFT.contract();
+			},
+			instantAdsListener = function(){
+				FT.query("#instantAdText").innerHTML = myFT.instantAds.panelText;
+			};
+
+			myFT.addEventListener("instantads", instantAdsListener);
+			myFT.applyButton(bannerCTA, expand);
+			myFT.applyButton(closeBtn, contract);
+			myFT.applyClickTag(hotspot, 1);
+	</script>
+	</body>
+</html>

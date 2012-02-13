@@ -13,7 +13,7 @@
 
 <body>
 <div id="wrap">
-<div id="header"><h1>Comic Books Galore</h1></div>
+<div id="header"><h1>Comic Books Galore!</h1></div>
 <div id="nav">
 <?php include("navbar.php") ?>
 </div>
@@ -32,8 +32,9 @@
 <div style="position:absolute;"> 
 <img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/spot/1921;7688;896/?spotName=Landing_Page"/> 
 </div>
-
+<div style="position:absolute;"><img style="width:1px; height:1px;" src="http://servedby.flashtalking.com/segment/modify/at1;;pixel/?name=LandingPage"/></div>
 
 <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+
 </body>
 </html>

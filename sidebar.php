@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
 $myquery = "SELECT id, name FROM products";
 

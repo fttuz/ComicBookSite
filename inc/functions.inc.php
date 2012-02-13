@@ -63,7 +63,9 @@ function getTransactionId() {
 
 function queryDB($query) {
     //dev
-    $link = mysql_connect('localhost', 'root', 'root');
+    //$link = mysql_connect('localhost', 'root', 'root');
+    //prod
+    $link = mysql_connect('comicsgalore.db.7775973.hostedresource.com','comicsgalore','Flash123');
 
     if (!$link) {
         die('Could not connect: ' . mysql_error());
@@ -80,7 +82,7 @@ function queryDB($query) {
     $result = mysql_query($query);
 
     if (!$result) {
-        $message  = 'Invalid query: ' . mysql_error() . "\n";
+        $message  = 'Invalid query: ' . mysql_error() . '\n';
         $message .= 'Whole query: ' . $query;
         die($message);
     }

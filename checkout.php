@@ -44,7 +44,6 @@ else
 </div>
 <div id="main">
 <?php
-	echo "<h3>Your Cart</h3>";
 	echo displayCart();
 
 	if (sumValuesFromCart("Price").length > 0) {
