@@ -3,11 +3,11 @@
 	<head>
 		<style type="text/css">
 			#banner{
-				background-color:#6b98d1;
+				background-color:#023C64;
 				width:300px;
 				height:250px;
 				z-index:1;
-				color:white;
+				color:#9BD5FD;
 				display: block;
 				font-family: sans-serif;
 			}
@@ -22,7 +22,7 @@
 				height:40px;
 			}
 			#panel{
-				background-color:#6b98d1;
+				background-color:#023C64;
 				width:500px;
 				height:300px;
 				display:none;
@@ -40,7 +40,7 @@
 				width:245px;
 				height:215px;
 			}
-			#closeBtn > img{
+			#closeBtn > img {
 				position:absolute;
 				top:10px;
 				left:10px;
@@ -61,7 +61,7 @@
 				width:170px;
 				height:20px;
 				/*border:2px solid white;*/
-				color:violet;
+				color:#FA6A05;
 				font-family: sans-serif;
 				font-size: 12px;
 			}
@@ -72,7 +72,7 @@
 				width:170px;
 				height:25px;
 				/*border:2px solid white;*/
-				color:white;
+				color:#9BD5FD;
 				font-family: sans-serif;
 				font-size: 12px;
 				font-style: italic;
@@ -105,14 +105,20 @@
 	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/video.js"></script>
 	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/expand.js"></script>
 	<script type="text/javascript" src="http://cdn.flashtalking.com/frameworks/js/api/2/instantAds.js"></script>
-	<script type="text/javascript" src="http://cdn.flashtalking.com/productCatalogs/48/demo.js"></script>
+	<!-- <script type="text/javascript" src="http://cdn.flashtalking.com/productCatalogs/48/demo.js"></script> -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 	<script type="text/javascript">
+			var prodFT = $.getScript("http://cdn.flashtalking.com/productCatalogs/48/demo3.js");
+			console.log(prodFT);
 			var myFT = new FT,
 			vid = myFT.insertVideo({
 				parent:FT.query("#video"),
 				video:"video1",
 				width:245,
 				height:215,
+				autoplay:false,
+				preload:true,
 				controls:true
 			}),
 			unexpanded = FT.query("#banner"),
@@ -125,7 +131,6 @@
 				unexpanded.style.display = "none";
 				myFT.expand();
 				myFT.dispatchEvent("productFeed");
-				vid.play();
 			},
 			contract = function(){
 				expanded.style.display="none";
@@ -135,9 +140,10 @@
 			},
 			instantAdsListener = function(){
 				FT.query("#instantAdText").innerHTML = myFT.instantAds.panelText;
+				vid.video.poster = myFT.instantAds.video1 + ".png";
 			},
 			productFeedListener = function() {
-				var results = prodFT.ft.products.product,
+				var results = prodFT().ft.products.product,
 				getLastViewed = function(prop) {
 					for (var i = 0; i <results.length; i++) {
 						    if (results[i]["-type"] == "lastViewed") {

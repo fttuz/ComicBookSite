@@ -10,9 +10,10 @@ FT.manifest({
 		"indentDown":0
 	},
 	"instantAds":[
-		{"name":"panelText", "type":"text","default":"Default Non Targetting Message-Comics are Great!"}
+		{"name":"panelText", "type":"text","default":"Default Non Targetting Message-Comics are Great!"},
+		{"name":"video1","type":"video"}
 	],
 	"videos":[
-		{"name":"video1", "ref":"14142/23001_comic_video_1"}
+		{"name":"video1", "ref":"14606/23142_SpiderMan"}
 	]
 });
